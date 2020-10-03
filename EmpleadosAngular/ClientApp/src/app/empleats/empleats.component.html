@@ -11,6 +11,7 @@
       <th>#</th>
       <th>Nombre</th>
       <th>Apellido</th>
+      <th>Cargo</th>
       <th>Sueldo</th>
       <th></th>
       <th></th>
@@ -21,6 +22,7 @@
       <td>{{ empleat.id }}</td>
       <td><a [routerLink]="['/Empleats/', empleat.id]">{{ empleat.nom }}</a></td>
       <td>{{ empleat.cognom }}</td>
+      <td>{{ empleat.carrec }}</td>
       <td>{{ empleat.sou }}</td>
       <td><a [routerLink]="['/Empleats/edit/', empleat.id]" class="btn btn-primary btn-sm float-right">Edit</a></td>
       <td><a [routerLink]="" (click)="delete(empleat.id)" class="btn btn-danger btn-sm float-right">Delete</a></td>

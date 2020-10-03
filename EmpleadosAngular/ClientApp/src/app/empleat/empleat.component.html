@@ -1,1 +1,10 @@
-<p>empleat works!</p>
+<ng-container *ngIf="(empleat$ | async) as empleat; else loading">
+
+    <h1>{{ empleat.nom }}  {{ empleat.cognom }}</h1>
+    <ul>
+      <li>{{ empleat.carrec }}</li>
+      <li>{{ empleat.sou }}</li>
+    </ul>
+  
+  </ng-container>
+  <ng-template #loading>Loading…</ng-template>
