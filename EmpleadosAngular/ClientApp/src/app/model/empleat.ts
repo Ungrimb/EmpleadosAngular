@@ -4,4 +4,4 @@ export class Empleat {
     Cognom: string;
     Carrec: string;
     Sou: string;
-  }
+}

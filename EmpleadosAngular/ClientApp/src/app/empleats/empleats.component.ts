@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Empleat } from '../model/empleat';
 import { EmpleatService } from '../services/empleat.service';
-import { Empleat } from '../models/empleat';
 
 @Component({
   selector: 'app-empleats',
@@ -11,28 +10,24 @@ import { Empleat } from '../models/empleat';
 })
 export class EmpleatsComponent implements OnInit {
 
-  empleats$: Observable<Empleat[]>;
-  Id: number;
+  empleat$: Observable<Empleat[]>;
 
-  constructor(private EmpleatService:EmpleatService, private avRoute: ActivatedRoute) { 
-    const idParam = 'id';
-    if (this.avRoute.snapshot.params[idParam]) {
-      this.Id = this.avRoute.snapshot.params[idParam];
-    }
-  }
+  constructor(private empleatService: EmpleatService) {
+
+   }
 
   ngOnInit() {
     this.loadEmpleats();
   }
 
-  loadEmpleats() {
-    this.empleats$ = this.EmpleatService.getEmpleats();
+  loadEmpleats(){
+    this.empleat$=this.empleatService.getEmpleats();
   }
 
   delete(Id) {
     const ans = confirm('Do you want to delete blog post with id: ' + Id);
     if (ans) {
-      this.EmpleatService.deleteEmpleat(Id).subscribe((data) => {
+      this.empleatService.deleteEmpleat(Id).subscribe((data) => {
         this.loadEmpleats();
       });
     }

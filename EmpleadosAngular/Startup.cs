@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using EmpleadosAngular.Data;
+using System;
 
 namespace EmpleadosAngular
 {
@@ -86,6 +87,7 @@ namespace EmpleadosAngular
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.StartupTimeout = TimeSpan.FromSeconds(120);
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
